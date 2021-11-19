@@ -31,21 +31,30 @@ function ColorPicker() {
             <br />
             <br />
 
-            <div className="container row">
-                <div className = "col-10 row">
+            <div className="container-fluid row d-flex justify-content-center">
+                <div className = "col-10 row d-flex justify-content-center">
                     <div className="col-4">
                         <form onSubmit={handleSubmit}>
-                            <h2>Give me two colors as hex values!</h2>
+                            <h2 className="mb-3">Choose Two Colors!</h2>
                             <label htmlFor="colorA">Color A:</label>
-                            <input type="text" value={colorA} onChange={(e) => setColorA(e.target.value)}/>
+                            <input type="color" value={colorA} onChange={(e) => setColorA(e.target.value)}/> <br />
                             <label htmlFor="colorA">Color B:</label>
-                            <input type="text" value={colorB} onChange={(e) => setColorB(e.target.value)}/>
+                            <input type="color" value={colorB} onChange={(e) => setColorB(e.target.value)}/> <br />
                             <input type="submit" />
                         </form>
                     </div>
 
-                    <div className="col-6 offset-2">
-                        {/* color gradient squares here */}
+                    <div className="col-6 offset-2 row">
+                        <h2 className="mb-3">Your color choices here</h2>
+                            {/* color gradient squares here */}
+                        {gradientArray.map((colorObj, index) => {
+                            return (
+                                <div key={index} className="col-5 mb-5">
+                                    <p>Color A: {colorObj.colorA} <br /> Color B: {colorObj.colorB}</p>
+                                    <div style={{height: "100px", width: "100px", background: `linear-gradient(${colorObj.colorA}, ${colorObj.colorB})`}} ></div>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
