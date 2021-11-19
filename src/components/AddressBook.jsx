@@ -5,7 +5,6 @@ function AddressBook() {
     const [nameInput, setNameInput] = useState("")
     const [emailInput, setEmailInput] = useState("")
     const [phoneInput, setPhoneInput] = useState("")
-    // const [newContact, setNewContact] = useState({});
     
     const handleSubmit = (e) => {
         e.preventDefault();
